@@ -28,7 +28,7 @@ CustomProtocolHandler是一个用于处理自定义协议的工具，旨在实�
 
 如果你想要用可执行文件的方式可以自己打包python文件为可执行文件，如：
 
-`pyinstaller "custom protocol handler.py" -w`
+`pyinstaller "customProtocolHandler.py" -w`
 
 #### 不打包
 

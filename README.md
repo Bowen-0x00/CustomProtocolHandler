@@ -26,7 +26,7 @@ Note:
 
 If you want to package the Python file as an executable file, you can use a tool like PyInstaller, for example:
 
-`pyinstaller "custom protocol handler.py" -w`
+`pyinstaller "customProtocolHandler.py" -w`
 
 #### Without Packaging
 

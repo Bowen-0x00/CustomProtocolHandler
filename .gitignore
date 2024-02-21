@@ -1,5 +1,5 @@
 dist/
 .vscode
 build/
-.spec
+*.spec
 *test*
