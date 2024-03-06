@@ -3,3 +3,5 @@ dist/
 build/
 *.spec
 *test*
+*Pipfile*
+pack*.bat
