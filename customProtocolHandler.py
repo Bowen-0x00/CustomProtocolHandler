@@ -6,7 +6,7 @@ from win32com.client import Dispatch
 import configparser
 from plyer import notification
 
-def convert_to_os_path(string):
+def convert_to_os_path(string: str):
     converted_path = string.replace('/', os.path.sep).replace('\\', os.path.sep)
     return converted_path
 
@@ -29,6 +29,7 @@ def process_custom_protocol(url):
     hostname = parsed_url.hostname
     query_string = parsed_url.query
     parsed_params = parse_qs(query_string)
+    folder_path: str = convert_to_os_path(parsed_params.get("folder", [""])[0])
     file_path: str = convert_to_os_path(parsed_params.get("file", [""])[0])
 
     if hostname == 'open':
@@ -46,6 +47,9 @@ def process_custom_protocol(url):
             slide = presentation.Slides(int(page_num))
             slide.Select()
             bring_window_to_front("PowerPoint")
+        elif app == 'code':
+            subprocess.run(f'code -n "{folder_path}"', shell=True)
+            subprocess.run(f'code -r -g "{file_path}":{parsed_params["line"][0]}', shell=True)
         else:
             subprocess.run(['start', '""', '/wait', file_path], shell=True)
 
