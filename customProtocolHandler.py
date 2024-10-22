@@ -51,7 +51,7 @@ def process_custom_protocol(url):
             subprocess.run(f'code -n "{folder_path}"', shell=True)
             subprocess.run(f'code -r -g "{file_path}":{parsed_params["line"][0]}', shell=True)
         else:
-            subprocess.run(['start', '""', '/wait', file_path], shell=True)
+            subprocess.run(f'start "" /wait "{file_path}"', shell=True)
 
 if __name__ == "__main__":
     try:
